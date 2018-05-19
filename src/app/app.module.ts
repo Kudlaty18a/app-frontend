@@ -12,12 +12,14 @@ import {HttpModule} from "@angular/http";
 import {AccountService} from "./service/account.service";
 import {routing} from "./app.routing";
 import {UrlPermission} from "./url-permission/url.permission";
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
