@@ -1,0 +1,7 @@
+<div>
+  <form name="form" (ngSubmit)="register()" #f="ngForm">
+    <input type="text" class="form-control" name="username" id="username" [(ngModel)]="user.username" #username="ngModel" />
+    <input type="password" class="form-control" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" />
+    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Create Account</button>
+  </form>
+</div>

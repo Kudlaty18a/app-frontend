@@ -8,16 +8,18 @@ import { ProfileComponent } from './component/profile/profile.component';
 
 import { FormsModule } from '@angular/forms';
 import { AuthService } from "./service/auth.service";
-import {HttpModule} from "@angular/http";
-import {AccountService} from "./service/account.service";
-import {routing} from "./app.routing";
-import {UrlPermission} from "./url-permission/url.permission";
+import { HttpModule } from "@angular/http";
+import { RegistrationService } from "./service/registration.service";
+import { routing } from "./app.routing";
+import { UrlPermission } from "./url-permission/url.permission";
+import { RegistrationComponent } from './component/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import {UrlPermission} from "./url-permission/url.permission";
     FormsModule,
     routing
   ],
-  providers: [AuthService, AccountService, UrlPermission],
+  providers: [AuthService, RegistrationService, UrlPermission],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,23 +10,17 @@ import { AuthService } from '../../service/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  currentUser: UserAccount;
-  user: any;
+  username: string;
 
   constructor(public authService: AuthService, public router: Router) {
   }
 
   ngOnInit() {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.username = localStorage.getItem('username');
   }
 
   logout() {
-    this.authService.logout()
-      .subscribe(data => {
-        this.router.navigate(['/login']);
-      }, error => {
-
-      });
+    this.authService.logout();
   }
 
 

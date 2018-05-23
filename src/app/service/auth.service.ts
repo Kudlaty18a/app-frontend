@@ -13,19 +13,21 @@ export class AuthService {
 
     return this.http.post(AppComponent.API_URL + '/login', JSON.stringify({ username: email, password: password }))
       .map((response: Response) => {
-        let user = response.json();
+        let user = response.headers.get("Authorization");
         
-        if (user && user.token) {
+        if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('username', email);
         }
       });
   }
 
   logout() {
-    return this.http.post(AppComponent.API_URL + "/logout", {})
-      .map((response: Response) => {
+    /*return this.http.post(AppComponent.API_URL + "/logout", {})
+      .map((response: Response) => {*/
         localStorage.removeItem('currentUser');
-      });
+        localStorage.removeItem('username');
+      //});
   }
 
 }
