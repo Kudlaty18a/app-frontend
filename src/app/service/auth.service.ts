@@ -9,12 +9,13 @@ export class AuthService {
 
   constructor(public http: Http) { }
 
-  login(username: string, password: string) {
-    return this.http.post(AppComponent.API_URL + '/account/login', JSON.stringify({ username: username, password: password }))
-      .map((response: Response) => {
-        let user = response.json().principal;
+  login(email: string, password: string) {
 
-        if (user) {
+    return this.http.post(AppComponent.API_URL + '/login', JSON.stringify({ username: email, password: password }))
+      .map((response: Response) => {
+        let user = response.json();
+        
+        if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
       });

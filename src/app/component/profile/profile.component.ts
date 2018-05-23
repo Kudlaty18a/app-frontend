@@ -11,12 +11,13 @@ import { AuthService } from '../../service/auth.service';
 export class ProfileComponent implements OnInit {
 
   currentUser: UserAccount;
+  user: any;
 
   constructor(public authService: AuthService, public router: Router) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   logout() {
@@ -27,5 +28,7 @@ export class ProfileComponent implements OnInit {
 
       });
   }
+
+
 
 }

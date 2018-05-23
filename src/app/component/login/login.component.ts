@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
+  model: any = {};
   errorMessage: string;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -20,12 +19,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.password);
-    this.authService.login(this.username, this.password) 
+    this.authService.login(this.model.email, this.model.password) 
       .subscribe(data => {
         this.router.navigate(['profile']);
-      }, err => {
-        this.errorMessage = "error : Username or password is incorrect";
       }
     )
   }
