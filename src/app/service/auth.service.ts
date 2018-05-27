@@ -23,11 +23,8 @@ export class AuthService {
   }
 
   logout() {
-    /*return this.http.post(AppComponent.API_URL + "/logout", {})
-      .map((response: Response) => {*/
-        localStorage.removeItem('currentUser');
-        localStorage.removeItem('username');
-      //});
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('username');
   }
 
 }
